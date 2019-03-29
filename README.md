@@ -16,23 +16,16 @@ To get Netbox up and running:
 ```
 $ git clone -b master https://github.com/netbox-community/netbox-docker.git
 $ cd netbox-docker
+$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+>   -keyout ./docker/nginx/nginx.key \
+>   -out ./docker/nginx/nginx.crt
+
 $ docker-compose pull
 $ docker-compose up -d
 ```
 
-The application will be available after a few minutes.
-Use `docker-compose port nginx 8080` to find out where to connect to.
+The application will be available after a few minutes on https://localhost.
 
-```
-$ echo "http://$(docker-compose port nginx 8080)/"
-http://0.0.0.0:32768/
-
-# Open netbox in your default browser on macOS:
-$ open "http://$(docker-compose port nginx 8080)/"
-
-# Open netbox in your default browser on (most) linuxes:
-$ xdg-open "http://$(docker-compose port nginx 8080)/" &>/dev/null &
-```
 
 Alternatively, use something like [Reception][docker-reception] to connect to _docker-compose_ projects.
 

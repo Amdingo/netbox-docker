@@ -29,12 +29,12 @@ services:
     command:
     - rqworker
   nginx:
-    command: nginx -c /etc/netbox-nginx/nginx.conf
-    image: nginx:1.15-alpine
+    build:
+      context: ./docker/nginx
+    command: nginx
     depends_on:
     - netbox
     ports:
-    - 80:8080
     - 443:443
     volumes:
     - netbox-static-files:/opt/netbox/netbox/static:ro
