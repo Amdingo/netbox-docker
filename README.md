@@ -14,7 +14,7 @@ Questions? Before opening an issue on Github, please join the [Network To Code][
 To get Netbox up and running:
 
 ```
-$ git clone -b master https://github.com/netbox-community/netbox-docker.git
+$ git clone -b ssl https://github.com/netbox-community/netbox-docker.git
 $ cd netbox-docker
 $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 >   -keyout ./docker/nginx/nginx.key \
